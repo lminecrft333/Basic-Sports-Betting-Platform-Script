@@ -1,45 +1,44 @@
-# Basic-Sports-Betting-Platform-Script
-import random
+# 🏟️ Basic Sports Betting Platform Script
 
-# Sample betting options
-matches = {
-    "Team A vs Team B": {"Team A": 1.8, "Team B": 2.2},
-    "Team C vs Team D": {"Team C": 1.5, "Team D": 2.5},
-}
+A simple command-line Python script simulating a basic sports betting experience. The user selects a match, places a bet on a team, and the result is determined randomly. Based on the outcome, the user's winnings are calculated.
 
-def place_bet():
-    print("Available matches:")
-    for idx, match in enumerate(matches.keys(), start=1):
-        print(f"{idx}. {match}")
+## 📌 Features
 
-    # Select match
-    match_index = int(input("Select a match (1 or 2): ")) - 1
-    match_name = list(matches.keys())[match_index]
-    teams = matches[match_name]
+- Simulates betting on two predefined sports matches.
+- Displays match odds and accepts user input for team and bet amount.
+- Randomly determines the winner.
+- Calculates and displays winnings or loss.
 
-    print(f"\n{match_name} - Odds:")
-    for team, odds in teams.items():
-        print(f"{team}: {odds}")
+## 🖥️ Demo
 
-    # Select team
-    team_choice = input("Enter the team you want to bet on: ")
-    if team_choice not in teams:
-        print("Invalid team selection!")
-        return
+```bash
+Available matches:
+1. Team A vs Team B
+2. Team C vs Team D
+Select a match (1 or 2): 1
 
-    # Enter bet amount
-    bet_amount = float(input("Enter your bet amount: $"))
-    
-    # Simulate match outcome
-    winner = random.choice(list(teams.keys()))
-    print(f"\nMatch Result: {winner} wins!")
+Team A vs Team B - Odds:
+Team A: 1.8
+Team B: 2.2
+Enter the team you want to bet on: Team A
+Enter your bet amount: $100
 
-    # Calculate winnings
-    if team_choice == winner:
-        winnings = bet_amount * teams[team_choice]
-        print(f"Congratulations! You won ${winnings:.2f}")
-    else:
-        print("You lost the bet. Better luck next time!")
+Match Result: Team A wins!
+Congratulations! You won $180.00
+```
 
-if __name__ == "__main__":
-    place_bet()
+## 🧠 How It Works
+1. The user selects a match from the list.
+2. Enters the team they want to bet on.
+3. Enters the amount they wish to bet.
+4. The outcome is simulated randomly.
+5. If the bet was successful, the winnings are calculated using the odds.
+
+
+## 🚀 How to Run
+```bash
+python basic_sports_betting.py
+```
+
+## ⚠️ Disclaimer
+This script is purely educational and meant for entertainment purposes only. It does not involve real money or real betting functionality.
